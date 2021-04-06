@@ -1,5 +1,16 @@
 # covid-tracking
 
+## Deployment
+
+```
+sudo docker build . -t frontend
+```
+
+```
+sudo docker run -d -p 80:80 frontend
+```
+
+
 ## Project setup
 ```
 npm install
