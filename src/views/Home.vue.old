@@ -1,0 +1,111 @@
+<template>
+  <div class="home">
+    <v-card :loading="loading" class="mx-auto my-12" max-width="90%">
+
+      <v-card-title>Covid Screening</v-card-title>
+
+      <v-card-text>
+
+        <v-row>
+          <v-col>
+            <v-text-field
+              v-model="name"
+              :rules="rules"
+              label="Naam"
+            ></v-text-field>
+          </v-col>
+          <v-col>
+            <v-text-field
+              v-model="surname"
+              :rules="rules"
+              label="Van"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-text-field
+              v-model="address"
+              :rules="rules"
+              label="Adres"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+
+        <v-row>
+          <v-col>
+            <h4 class="my-5">Het u enige simptome van Covid ?</h4>
+          </v-col>
+          <v-col>
+            <v-radio-group v-model="question1" row>
+              <v-radio label="Nee" value="false"></v-radio>
+              <v-radio label="Ja" value="true"></v-radio>
+            </v-radio-group>
+          </v-col>
+          
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <h4 class="my-5">Was U in aanraaking met iemand wat covid het ?</h4>
+          </v-col>
+          <v-col>
+            <v-radio-group v-model="question2" row>
+              <v-radio label="Nee" value="false"></v-radio>
+              <v-radio label="Ja" value="true"></v-radio>
+            </v-radio-group>
+          </v-col>
+          
+        </v-row>
+
+
+        <v-row>
+          <v-col>
+            <v-text-field
+              v-model="temp"
+              :rules="rules"
+              label="Temperatuur"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </v-card-text>
+
+
+      <v-card-actions>
+        <v-btn
+          color="success"
+          @click="Submit"
+        >
+          Submit
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'Home',
+  data () {
+    return {
+      loading: false,
+      name: "",
+      surname: "",
+      address: "",
+      temp: "",
+      question1: null,
+      question2: null,
+      rules: [v => v.length <= 25 || 'Max 25 characters'],
+    }
+  },
+  methods: {
+    Submit(){
+      console.log(this.name)
+    }
+  }
+}
+</script>
