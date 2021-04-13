@@ -149,7 +149,7 @@ export default {
       if(this.$refs.form.validate()) {
         this.loading = true
 
-        axios.post('http://192.168.0.6:8000/entries/', {
+        axios.post('https://covidapi.ptype.app/entries/', {
           name: this.form.name,
           surname: this.form.surname,
           cell: this.form.cell,
